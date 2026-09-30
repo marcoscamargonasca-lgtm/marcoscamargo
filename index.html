@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Academia de Ajedrez Pasillo del Rey</title>
+<style>
+body{margin:0;font-family:Arial;background:#07111f;color:white}header{background:#0d1b2a;padding:18px;text-align:center;position:sticky;top:0}nav a{color:#f5c451;text-decoration:none;margin:0 8px;font-weight:bold}.hero{text-align:center;padding:65px 20px;background:#10243a}h1,h2{color:#f5c451}section{max-width:900px;margin:auto;padding:40px 20px}.cards{display:flex;gap:15px;flex-wrap:wrap}.card,.book{background:#10243a;padding:20px;border-radius:12px;flex:1;min-width:200px}form{display:grid;gap:12px}input,select,textarea,button{padding:13px;border-radius:8px;font-size:16px}button{background:#f5c451;border:0;font-weight:bold}footer{text-align:center;padding:30px;background:#050c16}a{color:#f5c451}
+</style>
+</head>
+<body>
+<header><nav><a href="#inicio">Inicio</a><a href="#clases">Clases</a><a href="#inscripcion">Inscripción</a><a href="#libros">Libros</a></nav></header>
+<section id="inicio" class="hero"><h1>♟ Academia de Ajedrez Pasillo del Rey</h1><p>Aprende, entrena y compite.</p><p>Ica · Nasca</p></section>
+<section id="clases"><h2>Clases de Ajedrez</h2><div class="cards"><div class="card"><h3>Inicial</h3><p>Reglas, piezas y movimientos básicos.</p></div><div class="card"><h3>Intermedio</h3><p>Táctica, estrategia y análisis.</p></div><div class="card"><h3>Competitivo</h3><p>Preparación para torneos.</p></div></div></section>
+<section id="inscripcion"><h2>Inscripción de alumnos</h2><form id="registro"><input name="nombre" placeholder="Nombre completo" required><input name="edad" type="number" placeholder="Edad" required><input name="whatsapp" placeholder="WhatsApp" required><input name="email" type="email" placeholder="Correo electrónico"><select name="nivel" required><option value="">Selecciona tu nivel</option><option>Inicial</option><option>Intermedio</option><option>Competitivo</option></select><textarea name="mensaje" placeholder="Mensaje"></textarea><button type="submit">Registrar alumno</button></form><p id="estado"></p></section>
+<section id="libros"><h2>Libros virtuales</h2><div class="book"><h3>Fundamentos del Ajedrez</h3><p>S/ 15</p><a href="https://wa.me/51901148187?text=Quiero%20comprar%20Fundamentos%20del%20Ajedrez" target="_blank"><button>Comprar por WhatsApp</button></a></div><div class="book"><h3>Táctica y Combinaciones</h3><p>S/ 20</p><a href="https://wa.me/51901148187?text=Quiero%20comprar%20Táctica%20y%20Combinaciones" target="_blank"><button>Comprar por WhatsApp</button></a></div><div class="book"><h3>Preparación para Torneos</h3><p>S/ 25</p><a href="https://wa.me/51901148187?text=Quiero%20comprar%20Preparación%20para%20Torneos" target="_blank"><button>Comprar por WhatsApp</button></a></div></section>
+<footer><p>Academia de Ajedrez Pasillo del Rey</p><p>WhatsApp: 901 148 187 · 926 291 606</p><p>Facebook: academia de ajedrez pasillo del rey</p></footer>
+<script>
+const URL="https://sozopfatthuryfxmhiek.supabase.co";
+const KEY="PEGA_AQUI_TU_PUBLISHABLE_KEY";
+document.getElementById("registro").addEventListener("submit",async(e)=>{e.preventDefault();const estado=document.getElementById("estado"),datos=Object.fromEntries(new FormData(e.target).entries());datos.edad=Number(datos.edad);estado.textContent="Registrando...";try{const r=await fetch(URL+"/rest/v1/alumnos",{method:"POST",headers:{"Content-Type":"application/json","apikey":KEY,"Authorization":"Bearer "+KEY,"Prefer":"return=minimal"},body:JSON.stringify(datos)});if(!r.ok)throw new Error(await r.text());estado.textContent="¡Registro enviado correctamente!";e.target.reset()}catch(err){estado.textContent="No se pudo registrar. Revisa Supabase.";console.error(err)}});</script>
+</body></html>
