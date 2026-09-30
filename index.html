@@ -17,6 +17,6 @@ body{margin:0;font-family:Arial;background:#07111f;color:white}header{background
 <footer><p>Academia de Ajedrez Pasillo del Rey</p><p>WhatsApp: 901 148 187 · 926 291 606</p><p>Facebook: academia de ajedrez pasillo del rey</p></footer>
 <script>
 const URL="https://sozopfatthuryfxmhiek.supabase.co";
-const KEY="PEGA_AQUI_TU_PUBLISHABLE_KEY";
+const KEY="sb_publishable_LyxZ_Qw9TdzU-PsWAwHl_w_JI_t6m_n";
 document.getElementById("registro").addEventListener("submit",async(e)=>{e.preventDefault();const estado=document.getElementById("estado"),datos=Object.fromEntries(new FormData(e.target).entries());datos.edad=Number(datos.edad);estado.textContent="Registrando...";try{const r=await fetch(URL+"/rest/v1/alumnos",{method:"POST",headers:{"Content-Type":"application/json","apikey":KEY,"Authorization":"Bearer "+KEY,"Prefer":"return=minimal"},body:JSON.stringify(datos)});if(!r.ok)throw new Error(await r.text());estado.textContent="¡Registro enviado correctamente!";e.target.reset()}catch(err){estado.textContent="No se pudo registrar. Revisa Supabase.";console.error(err)}});</script>
 </body></html>
