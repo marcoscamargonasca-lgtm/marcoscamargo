@@ -26,6 +26,33 @@ section{max-width:1150px;margin:auto;padding:85px 20px}.section-title{text-align
 .contact{text-align:center;background:linear-gradient(145deg,#0e2032,#081320);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}footer{text-align:center;padding:35px 20px;color:var(--muted);font-size:13px}
 @media(max-width:800px){.cards,.books{grid-template-columns:1fr}.about{grid-template-columns:1fr}.gallery{grid-template-columns:1fr 1fr}.nav{align-items:flex-start}.brand span{display:none}nav{gap:12px}}
 @media(max-width:520px){.gallery{grid-template-columns:1fr}.hero{min-height:600px}section{padding:60px 16px}}
+
+.payment-wrap{max-width:980px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:center}
+.payment-card{background:rgba(255,255,255,.96);border:1px solid rgba(180,145,70,.35);border-radius:22px;padding:28px;box-shadow:0 16px 45px rgba(0,0,0,.12);text-align:center}
+.payment-card h3{font-family:Georgia,serif;font-size:28px;margin:8px 0 12px}
+.payment-card p{line-height:1.7}
+.qr-yape{width:min(100%,390px);border-radius:18px;display:block;margin:0 auto;box-shadow:0 12px 35px rgba(0,0,0,.18)}
+.yape-number{font-size:26px;font-weight:800;letter-spacing:1px;margin:14px 0}
+.payment-note{font-size:14px;opacity:.78}
+@media(max-width:760px){.payment-wrap{grid-template-columns:1fr}.payment-card{padding:20px}}
+
+
+.auth-grid{max-width:1050px;margin:auto;display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.auth-card,.library-card{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:24px}
+.auth-card h3,.library-card h3{margin-top:0}
+.auth-card input{width:100%;padding:12px;margin:7px 0 12px;border-radius:10px;border:1px solid var(--line);background:#081523;color:var(--text)}
+.auth-actions{display:flex;gap:10px;flex-wrap:wrap}
+.auth-status{min-height:24px;color:var(--gold2)}
+.library-list{display:grid;gap:12px}
+.library-item{border:1px solid var(--line);border-radius:12px;padding:15px;display:flex;align-items:center;justify-content:space-between;gap:15px}
+.library-item button{border:0;cursor:pointer}
+.locked{opacity:.8}
+@media(max-width:760px){.auth-grid{grid-template-columns:1fr}.library-item{align-items:flex-start;flex-direction:column}}
+
+
+#cuenta input{width:100%;box-sizing:border-box;padding:12px 14px;margin:7px 0 14px;border:1px solid #ddd;border-radius:10px}
+#cuenta label{display:block;text-align:left;font-weight:700;font-size:14px}
+#cuenta button{border:0;border-radius:10px;padding:11px 18px;cursor:pointer;font-weight:700}
 </style>
 </head>
 <body>
@@ -34,7 +61,7 @@ section{max-width:1150px;margin:auto;padding:85px 20px}.section-title{text-align
 <div class="nav">
 <a class="brand" href="#inicio"><img src="logo.jpg" alt="Logo Pasillo del Rey"><span>ACADEMIA PASILLO DEL REY</span></a>
 <nav>
-<a href="#inicio">Inicio</a><a href="#academia">Academia</a><a href="#clases">Clases</a><a href="#galeria">Galería</a><a href="#inscripcion">Inscripción</a><a href="#libros">Libros</a>
+<a href="#inicio">Inicio</a><a href="#academia">Academia</a><a href="#clases">Clases</a><a href="#galeria">Galería</a><a href="#inscripcion">Inscripción</a><a href="#pago">Pago</a><a href="#cuenta">Mi cuenta</a><a href="#libros">Libros</a>
 </nav>
 </div>
 </header>
@@ -68,9 +95,9 @@ section{max-width:1150px;margin:auto;padding:85px 20px}.section-title{text-align
 <section id="galeria">
 <div class="section-title"><span>Momentos</span><h2>Galería</h2><p>Espacio preparado para incorporar fotografías de clases, torneos y premiaciones.</p></div>
 <div class="gallery">
-<figure><img src="le.peg" alt="Academia Pasillo del Rey"><figcaption>Academia de Ajedrez Pasillo del Rey</figcaption></figure>
-<figure><img src="l2.peg" alt="Pasillo del Rey"><figcaption>Entrenamiento y formación</figcaption></figure>
-<figure><img src="l1.peg" alt="Pasillo del Rey"><figcaption>Torneos y competición</figcaption></figure>
+<figure><img src="logo.jpg" alt="Academia Pasillo del Rey"><figcaption>Academia de Ajedrez Pasillo del Rey</figcaption></figure>
+<figure><img src="logo.jpg" alt="Pasillo del Rey"><figcaption>Entrenamiento y formación</figcaption></figure>
+<figure><img src="logo.jpg" alt="Pasillo del Rey"><figcaption>Torneos y competición</figcaption></figure>
 </div>
 </section>
 
@@ -89,32 +116,201 @@ section{max-width:1150px;margin:auto;padding:85px 20px}.section-title{text-align
 </div>
 </section>
 
-<section id="libros">
-<div class="section-title"><span>Material de estudio</span><h2>Libros virtuales</h2><p>Solicita tu material directamente por WhatsApp.</p></div>
-<div class="books">
-<div class="book"><h3>Fundamentos del Ajedrez</h3><div class="price">S/ 15</div><a href="https://wa.me/51901148187?text=Quiero%20comprar%20Fundamentos%20del%20Ajedrez" target="_blank">Solicitar</a></div>
-<div class="book"><h3>Táctica y Combinaciones</h3><div class="price">S/ 20</div><a href="https://wa.me/51901148187?text=Quiero%20comprar%20Táctica%20y%20Combinaciones" target="_blank">Solicitar</a></div>
-<div class="book"><h3>Preparación para Torneos</h3><div class="price">S/ 25</div><a href="https://wa.me/51901148187?text=Quiero%20comprar%20Preparación%20para%20Torneos" target="_blank">Solicitar</a></div>
+
+<section id="pago">
+<div class="section-title">
+<span>Pago</span>
+<h2>Paga con Yape</h2>
+<p>Realiza el pago de tu inscripción, curso o contenido digital mediante el QR de la Academia Pasillo del Rey.</p>
+</div>
+<div class="payment-wrap">
+  <div class="payment-card">
+    <img class="qr-yape" src="qr-yape.png" alt="Código QR de Yape para Academia Pasillo del Rey">
+  </div>
+  <div class="payment-card">
+    <h3>Yape</h3>
+    <p>Escanea el código QR desde tu aplicación Yape e ingresa el monto indicado para el producto que deseas adquirir.</p>
+    <div class="yape-number">901 148 187</div>
+    <p><strong>Titular:</strong> Ederzon Marcos Antonio Camargo Pujadas</p>
+    <p class="payment-note">Conserva tu comprobante de pago. La activación automática de acceso a libros y cursos requiere integrar el pago web de Yape mediante una pasarela compatible; este QR por sí solo no envía una confirmación automática a la página.</p>
+  </div>
 </div>
 </section>
+
+
+
+<section id="cuenta">
+  <div class="section-title">
+    <span>Mi cuenta</span>
+    <h2>Perfil del alumno</h2>
+    <p>Después de registrarte podrás mantener actualizada tu información y vincular tu cuenta de Lichess.</p>
+  </div>
+  <div class="payment-wrap">
+    <div class="payment-card">
+      <h3>🔐 Acceso</h3>
+      <p>Ingresa con tu correo y contraseña. Tu biblioteca y tus beneficios se muestran según tu suscripción activa.</p>
+      <button type="button" onclick="alert('El inicio de sesión se conecta con Supabase Auth al configurar las credenciales del proyecto.')">Iniciar sesión</button>
+    </div>
+    <div class="payment-card">
+      <h3>♟️ Perfil ajedrecístico</h3>
+      <p>Puedes añadir información adicional a tu perfil:</p>
+      <label>Usuario de Lichess</label>
+      <input id="lichess_user" type="text" placeholder="Ej.: tu_usuario">
+      <label>URL de tu perfil de Lichess</label>
+      <input id="lichess_url" type="url" placeholder="https://lichess.org/@/tu_usuario">
+      <p class="payment-note">Esta información será opcional y servirá para identificar tu cuenta de juego.</p>
+      <button type="button" onclick="guardarPerfilAjedrez()">Guardar información</button>
+      <div id="perfilMsg" class="payment-note" style="margin-top:10px"></div>
+    </div>
+  </div>
+</section>
+
+<section id="libros">
+<div class="section-title"><span>Biblioteca privada</span><h2>Libros y beneficios</h2><p>Crea tu cuenta, inicia sesión y accede al contenido que tengas habilitado.</p></div>
+<div class="auth-grid">
+  <div class="auth-card">
+    <h3>Crear cuenta / Ingresar</h3>
+    <label>Correo electrónico</label>
+    <input id="auth-email" type="email" autocomplete="email" placeholder="tu@email.com">
+    <label>Contraseña</label>
+    <input id="auth-password" type="password" autocomplete="current-password" placeholder="Mínimo 6 caracteres">
+    <hr style="border-color:var(--line);width:100%">
+    <h4 style="margin:4px 0">Datos del padre, madre o apoderado</h4>
+    <input id="profile-nombre" placeholder="Nombre del padre/madre/apoderado">
+    <input id="profile-whatsapp" placeholder="WhatsApp del padre/madre/apoderado">
+    <input id="profile-email" type="email" placeholder="Correo del padre/madre/apoderado">
+    <div class="auth-actions">
+      <button class="btn" id="btn-save-profile" type="button">Guardar datos y avisos</button>
+    </div>
+    <div class="auth-actions">
+      <button class="btn" id="btn-signup" type="button">Crear cuenta</button>
+      <button class="btn" id="btn-login" type="button">Iniciar sesión</button>
+      <button class="btn" id="btn-logout" type="button" style="display:none">Cerrar sesión</button>
+    </div>
+    <p id="auth-status" class="auth-status"></p><p id="profile-status" class="auth-status"></p>
+  </div>
+  <div class="library-card">
+    <h3>Tu biblioteca</h3>
+    <div id="library-status">Inicia sesión para consultar tus beneficios.</div>
+    <p class="payment-note">Los avisos de vencimiento se envían al WhatsApp y correo del padre/madre/apoderado registrados, si están configurados y autorizados.</p>
+    <div id="library-list" class="library-list"></div>
+  </div>
+</div>
+</section>
+
 
 <section class="contact"><div class="section-title"><span>Contacto</span><h2>Academia Pasillo del Rey</h2><p>WhatsApp: 901 148 187 · 926 291 606</p><p>Ica · Nasca</p></div></section>
 </main>
 
 <footer>© Academia de Ajedrez Pasillo del Rey · Todos los derechos reservados</footer>
 
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script>
 const URL="https://sozopfatthuryfxmhiek.supabase.co";
-const KEY="sb_publishable_LyxZ_Qw9TdzU-PsWAwHl_w_JI_t6m_n";
-document.getElementById("registro").addEventListener("submit",async(e)=>{
-e.preventDefault();
-const estado=document.getElementById("estado"),datos=Object.fromEntries(new FormData(e.target).entries());
-datos.edad=Number(datos.edad);estado.textContent="Enviando inscripción...";
-try{const r=await fetch(URL+"/rest/v1/alumnos",{method:"POST",headers:{"Content-Type":"application/json","apikey":KEY,"Authorization":"Bearer "+KEY,"Prefer":"return=minimal"},body:JSON.stringify(datos)});
-if(!r.ok)throw new Error(await r.text());
-estado.textContent="✓ Inscripción enviada correctamente.";e.target.reset();
-}catch(err){estado.textContent="No se pudo enviar. Verifica la configuración de Supabase.";console.error(err)}
+const KEY="PEGA_AQUI_TU_PUBLISHABLE_KEY";
+const {createClient}=supabase;
+const sb=createClient(URL,KEY);
+
+const registro=document.getElementById("registro");
+if(registro) registro.addEventListener("submit",async(e)=>{
+ e.preventDefault();
+ const estado=document.getElementById("estado"),datos=Object.fromEntries(new FormData(e.target).entries());
+ datos.edad=Number(datos.edad); estado.textContent="Enviando inscripción...";
+ try{
+  const r=await fetch(URL+"/rest/v1/alumnos",{method:"POST",headers:{"Content-Type":"application/json","apikey":KEY,"Authorization":"Bearer "+KEY,"Prefer":"return=minimal"},body:JSON.stringify(datos)});
+  if(!r.ok)throw new Error(await r.text());
+  estado.textContent="✓ Inscripción enviada correctamente."; e.target.reset();
+ }catch(err){estado.textContent="No se pudo enviar. Verifica la configuración de Supabase.";console.error(err)}
 });
+
+const $=id=>document.getElementById(id);
+function authMsg(t){$("auth-status").textContent=t}
+function renderLoggedOut(){ $("btn-logout").style.display="none"; $("library-status").textContent="Inicia sesión para consultar tus beneficios."; $("library-list").innerHTML=""}
+async function renderUser(user){
+ $("btn-logout").style.display="inline-block";
+ $("auth-email").value=user.email||"";
+ $("auth-password").value="";
+ const {data:profile}=await sb.from("profiles").select("nombre,apoderado_nombre,apoderado_whatsapp,apoderado_email").eq("id",user.id).maybeSingle();
+ if(profile){
+   $("profile-nombre").value=profile.apoderado_nombre||"";
+   $("profile-whatsapp").value=profile.apoderado_whatsapp||"";
+   $("profile-email").value=profile.apoderado_email||"";
+ }
+ $("library-status").textContent="Consultando tu acceso...";
+ const {data,error}=await sb.from("library_access").select("book_id,title,description,file_path,subscription_status,expires_at").eq("user_id",user.id);
+ if(error){$("library-status").textContent="No se pudo cargar tu biblioteca.";console.error(error);return}
+ const list=$("library-list"); list.innerHTML="";
+ if(!data?.length){$("library-status").textContent="Aún no tienes contenido habilitado. Cuando tu pago sea confirmado, aparecerá aquí.";return}
+ $("library-status").textContent="Contenido disponible:";
+ data.forEach(item=>{
+   const row=document.createElement("div"); row.className="library-item";
+   const info=document.createElement("div");
+   info.innerHTML="<strong>"+escapeHtml(item.title)+"</strong><br><small>"+escapeHtml(item.description||"")+"</small>";
+   const b=document.createElement("button"); b.className="btn"; b.textContent="Descargar";
+   b.onclick=()=>downloadBook(item.book_id);
+   row.append(info,b); list.appendChild(row);
+ });
+}
+function escapeHtml(s){return String(s??"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[m]))}
+async function downloadBook(bookId){
+ const {data,error}=await sb.functions.invoke("download-book",{body:{book_id:bookId}});
+ if(error||!data?.url){alert("No tienes acceso a este contenido o el enlace expiró.");return}
+ window.open(data.url,"_blank","noopener");
+}
+
+$("btn-save-profile").onclick=async()=>{
+ const {data:{user}}=await sb.auth.getUser();
+ if(!user){$("profile-status").textContent="Primero inicia sesión.";return}
+ const payload={
+   id:user.id,
+   nombre:user.user_metadata?.nombre || null,
+   apoderado_nombre:$("profile-nombre").value.trim()||null,
+   apoderado_whatsapp:$("profile-whatsapp").value.trim()||null,
+   apoderado_email:$("profile-email").value.trim()||null
+ };
+ const {error}=await sb.from("profiles").upsert(payload);
+ $("profile-status").textContent=error?("No se pudo guardar: "+error.message):"✓ Datos del apoderado guardados.";
+};
+
+$("btn-signup").onclick=async()=>{
+ const email=$("auth-email").value.trim(),password=$("auth-password").value;
+ if(!email||password.length<6){authMsg("Ingresa un correo y una contraseña de al menos 6 caracteres.");return}
+ authMsg("Creando cuenta...");
+ const {error}=await sb.auth.signUp({
+  email,password,
+  options:{data:{
+    nombre:null,
+    apoderado_nombre:$("profile-nombre").value.trim()||null,
+    apoderado_whatsapp:$("profile-whatsapp").value.trim()||null,
+    apoderado_email:$("profile-email").value.trim()||null
+  }}
+});
+ authMsg(error?error.message:"✓ Cuenta creada. Revisa tu correo si Supabase solicita confirmación.");
+};
+$("btn-login").onclick=async()=>{
+ const email=$("auth-email").value.trim(),password=$("auth-password").value;
+ authMsg("Iniciando sesión...");
+ const {data,error}=await sb.auth.signInWithPassword({email,password});
+ if(error){authMsg(error.message);return}
+ authMsg("✓ Sesión iniciada."); await renderUser(data.user);
+};
+$("btn-logout").onclick=async()=>{await sb.auth.signOut();authMsg("Sesión cerrada.");renderLoggedOut()};
+sb.auth.onAuthStateChange(async(event,session)=>{
+ if(session?.user) await renderUser(session.user); else renderLoggedOut();
+});
+(async()=>{const {data}=await sb.auth.getSession();if(data.session) await renderUser(data.session.user)})();
+</script>
+
+
+<script>
+async function guardarPerfilAjedrez(){
+  const user=document.getElementById('lichess_user').value.trim();
+  const url=document.getElementById('lichess_url').value.trim();
+  const msg=document.getElementById('perfilMsg');
+  if(!user && !url){ msg.textContent='Añade al menos tu usuario o enlace de Lichess.'; return; }
+  msg.textContent='Información preparada. Se guardará en tu perfil cuando Supabase Auth y la tabla de perfiles estén configurados.';
+}
 </script>
 </body>
 </html>
