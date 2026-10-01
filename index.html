@@ -139,64 +139,66 @@ section{max-width:1150px;margin:auto;padding:85px 20px}.section-title{text-align
 
 
 
+
 <section id="cuenta">
   <div class="section-title">
     <span>Mi cuenta</span>
-    <h2>Perfil del alumno</h2>
-    <p>Después de registrarte podrás mantener actualizada tu información y vincular tu cuenta de Lichess.</p>
+    <h2>Cuenta del alumno</h2>
+    <p>Crea tu cuenta con correo y contraseña, inicia sesión y administra tu perfil ajedrecístico.</p>
   </div>
-  <div class="payment-wrap">
-    <div class="payment-card">
-      <h3>🔐 Acceso</h3>
-      <p>Ingresa con tu correo y contraseña. Tu biblioteca y tus beneficios se muestran según tu suscripción activa.</p>
-      <button type="button" onclick="alert('El inicio de sesión se conecta con Supabase Auth al configurar las credenciales del proyecto.')">Iniciar sesión</button>
+  <div class="auth-grid">
+    <div class="auth-card">
+      <h3>Crear cuenta</h3>
+      <label>Correo electrónico</label>
+      <input id="auth-email" type="email" autocomplete="email" placeholder="tu@email.com" required>
+      <label>Contraseña</label>
+      <input id="auth-password" type="password" autocomplete="new-password" placeholder="Mínimo 6 caracteres" minlength="6" required>
+      <label>Nombre del alumno</label>
+      <input id="profile-alumno" type="text" placeholder="Nombre completo">
+      <label>Padre, madre o apoderado</label>
+      <input id="profile-apoderado" type="text" placeholder="Nombre del apoderado">
+      <label>WhatsApp del apoderado</label>
+      <input id="profile-whatsapp" type="tel" placeholder="Número de WhatsApp">
+      <label>Correo del apoderado</label>
+      <input id="profile-email" type="email" placeholder="Correo del apoderado">
+      <div class="auth-actions">
+        <button id="btn-signup" type="button">Crear cuenta</button>
+        <button id="btn-login" type="button">Iniciar sesión</button>
+        <button id="btn-logout" type="button" style="display:none">Cerrar sesión</button>
+      </div>
+      <button id="btn-reset" type="button" style="margin-top:10px;background:transparent;color:var(--gold2);border:1px solid var(--gold);">Olvidé mi contraseña</button>
+      <p id="auth-status" class="auth-status"></p>
     </div>
-    <div class="payment-card">
+
+    <div class="auth-card">
       <h3>♟️ Perfil ajedrecístico</h3>
-      <p>Puedes añadir información adicional a tu perfil:</p>
       <label>Usuario de Lichess</label>
-      <input id="lichess_user" type="text" placeholder="Ej.: tu_usuario">
-      <label>URL de tu perfil de Lichess</label>
-      <input id="lichess_url" type="url" placeholder="https://lichess.org/@/tu_usuario">
-      <p class="payment-note">Esta información será opcional y servirá para identificar tu cuenta de juego.</p>
-      <button type="button" onclick="guardarPerfilAjedrez()">Guardar información</button>
-      <div id="perfilMsg" class="payment-note" style="margin-top:10px"></div>
+      <input id="lichess-user" type="text" placeholder="Ej.: tu_usuario">
+      <label>Enlace de Lichess</label>
+      <input id="lichess-url" type="url" placeholder="https://lichess.org/@/tu_usuario">
+      <button id="btn-save-profile" type="button">Guardar perfil</button>
+      <p id="profile-status" class="auth-status"></p>
+      <hr style="border-color:var(--line);width:100%">
+      <p class="payment-note">Tu cuenta y tu perfil son privados. Los datos de Lichess son opcionales y no son una contraseña.</p>
     </div>
   </div>
 </section>
 
+
+
 <section id="libros">
-<div class="section-title"><span>Biblioteca privada</span><h2>Libros y beneficios</h2><p>Crea tu cuenta, inicia sesión y accede al contenido que tengas habilitado.</p></div>
-<div class="auth-grid">
-  <div class="auth-card">
-    <h3>Crear cuenta / Ingresar</h3>
-    <label>Correo electrónico</label>
-    <input id="auth-email" type="email" autocomplete="email" placeholder="tu@email.com">
-    <label>Contraseña</label>
-    <input id="auth-password" type="password" autocomplete="current-password" placeholder="Mínimo 6 caracteres">
-    <hr style="border-color:var(--line);width:100%">
-    <h4 style="margin:4px 0">Datos del padre, madre o apoderado</h4>
-    <input id="profile-nombre" placeholder="Nombre del padre/madre/apoderado">
-    <input id="profile-whatsapp" placeholder="WhatsApp del padre/madre/apoderado">
-    <input id="profile-email" type="email" placeholder="Correo del padre/madre/apoderado">
-    <div class="auth-actions">
-      <button class="btn" id="btn-save-profile" type="button">Guardar datos y avisos</button>
-    </div>
-    <div class="auth-actions">
-      <button class="btn" id="btn-signup" type="button">Crear cuenta</button>
-      <button class="btn" id="btn-login" type="button">Iniciar sesión</button>
-      <button class="btn" id="btn-logout" type="button" style="display:none">Cerrar sesión</button>
-    </div>
-    <p id="auth-status" class="auth-status"></p><p id="profile-status" class="auth-status"></p>
+  <div class="section-title">
+    <span>Biblioteca privada</span>
+    <h2>Libros y beneficios</h2>
+    <p>Inicia sesión para consultar el contenido habilitado para tu suscripción.</p>
   </div>
-  <div class="library-card">
-    <h3>Tu biblioteca</h3>
+  <div class="library-card" style="max-width:900px;margin:auto">
     <div id="library-status">Inicia sesión para consultar tus beneficios.</div>
-    <p class="payment-note">Los avisos de vencimiento se envían al WhatsApp y correo del padre/madre/apoderado registrados, si están configurados y autorizados.</p>
     <div id="library-list" class="library-list"></div>
+    <p class="payment-note">El acceso a los libros depende de una suscripción activa y de la autorización correspondiente.</p>
   </div>
-</div>
 </section>
+
 
 
 <section class="contact"><div class="section-title"><span>Contacto</span><h2>Academia Pasillo del Rey</h2><p>WhatsApp: 901 148 187 · 926 291 606</p><p>Ica · Nasca</p></div></section>
@@ -205,112 +207,305 @@ section{max-width:1150px;margin:auto;padding:85px 20px}.section-title{text-align
 <footer>© Academia de Ajedrez Pasillo del Rey · Todos los derechos reservados</footer>
 
 
+
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script>
-const URL="https://sozopfatthuryfxmhiek.supabase.co";
-const KEY="sb_publishable_LyxZ_Qw9TdzU-PsWAwHl_w_JI_t6m_n";
-const {createClient}=supabase;
-const sb=createClient(URL,KEY);
+/* =========================
+   SUPABASE - PASILLO DEL REY
+   ========================= */
+const SUPABASE_URL = "https://sozopfatthuryfxmhiek.supabase.co";
+const SUPABASE_PUBLISHABLE_KEY = "PEGA_AQUI_TU_PUBLISHABLE_KEY";
+const SITE_URL = "https://marcoscamargonasca-lgtm.github.io/marcoscamargo/";
 
-const registro=document.getElementById("registro");
-if(registro) registro.addEventListener("submit",async(e)=>{
- e.preventDefault();
- const estado=document.getElementById("estado"),datos=Object.fromEntries(new FormData(e.target).entries());
- datos.edad=Number(datos.edad); estado.textContent="Enviando inscripción...";
- try{
-  const r=await fetch(URL+"/rest/v1/alumnos",{method:"POST",headers:{"Content-Type":"application/json","apikey":KEY,"Authorization":"Bearer "+KEY,"Prefer":"return=minimal"},body:JSON.stringify(datos)});
-  if(!r.ok)throw new Error(await r.text());
-  estado.textContent="✓ Inscripción enviada correctamente."; e.target.reset();
- }catch(err){estado.textContent="No se pudo enviar. Verifica la configuración de Supabase.";console.error(err)}
-});
+const sb = supabase.createClient(SUPABASE_URL, SUPABASE_PUBLISHABLE_KEY);
 
-const $=id=>document.getElementById(id);
-function authMsg(t){$("auth-status").textContent=t}
-function renderLoggedOut(){ $("btn-logout").style.display="none"; $("library-status").textContent="Inicia sesión para consultar tus beneficios."; $("library-list").innerHTML=""}
-async function renderUser(user){
- $("btn-logout").style.display="inline-block";
- $("auth-email").value=user.email||"";
- $("auth-password").value="";
- const {data:profile}=await sb.from("profiles").select("nombre,apoderado_nombre,apoderado_whatsapp,apoderado_email").eq("id",user.id).maybeSingle();
- if(profile){
-   $("profile-nombre").value=profile.apoderado_nombre||"";
-   $("profile-whatsapp").value=profile.apoderado_whatsapp||"";
-   $("profile-email").value=profile.apoderado_email||"";
- }
- $("library-status").textContent="Consultando tu acceso...";
- const {data,error}=await sb.from("library_access").select("book_id,title,description,file_path,subscription_status,expires_at").eq("user_id",user.id);
- if(error){$("library-status").textContent="No se pudo cargar tu biblioteca.";console.error(error);return}
- const list=$("library-list"); list.innerHTML="";
- if(!data?.length){$("library-status").textContent="Aún no tienes contenido habilitado. Cuando tu pago sea confirmado, aparecerá aquí.";return}
- $("library-status").textContent="Contenido disponible:";
- data.forEach(item=>{
-   const row=document.createElement("div"); row.className="library-item";
-   const info=document.createElement("div");
-   info.innerHTML="<strong>"+escapeHtml(item.title)+"</strong><br><small>"+escapeHtml(item.description||"")+"</small>";
-   const b=document.createElement("button"); b.className="btn"; b.textContent="Descargar";
-   b.onclick=()=>downloadBook(item.book_id);
-   row.append(info,b); list.appendChild(row);
- });
-}
-function escapeHtml(s){return String(s??"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[m]))}
-async function downloadBook(bookId){
- const {data,error}=await sb.functions.invoke("download-book",{body:{book_id:bookId}});
- if(error||!data?.url){alert("No tienes acceso a este contenido o el enlace expiró.");return}
- window.open(data.url,"_blank","noopener");
+const $ = (id) => document.getElementById(id);
+const authStatus = (msg, error=false) => {
+  if ($("auth-status")) {
+    $("auth-status").textContent = msg;
+    $("auth-status").style.color = error ? "#ff9a9a" : "var(--gold2)";
+  }
+};
+const profileStatus = (msg, error=false) => {
+  if ($("profile-status")) {
+    $("profile-status").textContent = msg;
+    $("profile-status").style.color = error ? "#ff9a9a" : "var(--gold2)";
+  }
+};
+function esc(value){
+  return String(value ?? "").replace(/[&<>"']/g, ch => ({
+    "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"
+  }[ch]));
 }
 
-$("btn-save-profile").onclick=async()=>{
- const {data:{user}}=await sb.auth.getUser();
- if(!user){$("profile-status").textContent="Primero inicia sesión.";return}
- const payload={
-   id:user.id,
-   nombre:user.user_metadata?.nombre || null,
-   apoderado_nombre:$("profile-nombre").value.trim()||null,
-   apoderado_whatsapp:$("profile-whatsapp").value.trim()||null,
-   apoderado_email:$("profile-email").value.trim()||null
- };
- const {error}=await sb.from("profiles").upsert(payload);
- $("profile-status").textContent=error?("No se pudo guardar: "+error.message):"✓ Datos del apoderado guardados.";
-};
-
-$("btn-signup").onclick=async()=>{
- const email=$("auth-email").value.trim(),password=$("auth-password").value;
- if(!email||password.length<6){authMsg("Ingresa un correo y una contraseña de al menos 6 caracteres.");return}
- authMsg("Creando cuenta...");
- const {error}=await sb.auth.signUp({
-  email,password,
-  options:{data:{
-    nombre:null,
-    apoderado_nombre:$("profile-nombre").value.trim()||null,
-    apoderado_whatsapp:$("profile-whatsapp").value.trim()||null,
-    apoderado_email:$("profile-email").value.trim()||null
-  }}
-});
- authMsg(error?error.message:"✓ Cuenta creada. Revisa tu correo si Supabase solicita confirmación.");
-};
-$("btn-login").onclick=async()=>{
- const email=$("auth-email").value.trim(),password=$("auth-password").value;
- authMsg("Iniciando sesión...");
- const {data,error}=await sb.auth.signInWithPassword({email,password});
- if(error){authMsg(error.message);return}
- authMsg("✓ Sesión iniciada."); await renderUser(data.user);
-};
-$("btn-logout").onclick=async()=>{await sb.auth.signOut();authMsg("Sesión cerrada.");renderLoggedOut()};
-sb.auth.onAuthStateChange(async(event,session)=>{
- if(session?.user) await renderUser(session.user); else renderLoggedOut();
-});
-(async()=>{const {data}=await sb.auth.getSession();if(data.session) await renderUser(data.session.user)})();
-</script>
-
-
-<script>
-async function guardarPerfilAjedrez(){
-  const user=document.getElementById('lichess_user').value.trim();
-  const url=document.getElementById('lichess_url').value.trim();
-  const msg=document.getElementById('perfilMsg');
-  if(!user && !url){ msg.textContent='Añade al menos tu usuario o enlace de Lichess.'; return; }
-  msg.textContent='Información preparada. Se guardará en tu perfil cuando Supabase Auth y la tabla de perfiles estén configurados.';
+/* Inscripción pública existente */
+const registro = $("registro");
+if (registro) {
+  registro.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const estado = $("estado");
+    const datos = Object.fromEntries(new FormData(e.target).entries());
+    datos.edad = Number(datos.edad);
+    estado.textContent = "Enviando inscripción...";
+    try {
+      const response = await fetch(SUPABASE_URL + "/rest/v1/alumnos", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "apikey": SUPABASE_PUBLISHABLE_KEY,
+          "Authorization": "Bearer " + SUPABASE_PUBLISHABLE_KEY,
+          "Prefer": "return=minimal"
+        },
+        body: JSON.stringify(datos)
+      });
+      if (!response.ok) throw new Error(await response.text());
+      estado.textContent = "✓ Inscripción enviada correctamente.";
+      e.target.reset();
+    } catch (err) {
+      console.error(err);
+      estado.textContent = "No se pudo enviar. Verifica la configuración de Supabase.";
+    }
+  });
 }
+
+/* Crear cuenta */
+$("btn-signup")?.addEventListener("click", async () => {
+  const email = $("auth-email").value.trim();
+  const password = $("auth-password").value;
+  const alumno = $("profile-alumno").value.trim();
+  const apoderado = $("profile-apoderado").value.trim();
+  const whatsapp = $("profile-whatsapp").value.trim();
+  const apoderadoEmail = $("profile-email").value.trim();
+
+  if (!email || !password) {
+    authStatus("Escribe tu correo y contraseña.", true);
+    return;
+  }
+  if (password.length < 6) {
+    authStatus("La contraseña debe tener al menos 6 caracteres.", true);
+    return;
+  }
+
+  authStatus("Creando tu cuenta...");
+
+  const { data, error } = await sb.auth.signUp({
+    email,
+    password,
+    options: {
+      emailRedirectTo: SITE_URL,
+      data: {
+        alumno_nombre: alumno,
+        apoderado_nombre: apoderado,
+        apoderado_whatsapp: whatsapp,
+        apoderado_email: apoderadoEmail
+      }
+    }
+  });
+
+  if (error) {
+    console.error(error);
+    authStatus("No se pudo crear la cuenta: " + error.message, true);
+    return;
+  }
+
+  if (data.session) {
+    authStatus("✓ Cuenta creada. Ya puedes ingresar.");
+    await cargarPerfil(data.user);
+  } else {
+    authStatus("✓ Cuenta creada. Revisa tu correo y confirma la cuenta. Después vuelve a la página e inicia sesión.");
+  }
+});
+
+/* Iniciar sesión */
+$("btn-login")?.addEventListener("click", async () => {
+  const email = $("auth-email").value.trim();
+  const password = $("auth-password").value;
+
+  if (!email || !password) {
+    authStatus("Escribe tu correo y contraseña.", true);
+    return;
+  }
+
+  authStatus("Iniciando sesión...");
+
+  const { data, error } = await sb.auth.signInWithPassword({
+    email,
+    password
+  });
+
+  if (error) {
+    console.error(error);
+    authStatus("No se pudo iniciar sesión: " + error.message, true);
+    return;
+  }
+
+  authStatus("✓ Sesión iniciada.");
+  await cargarPerfil(data.user);
+});
+
+/* Cerrar sesión */
+$("btn-logout")?.addEventListener("click", async () => {
+  const { error } = await sb.auth.signOut();
+  if (error) {
+    authStatus("No se pudo cerrar sesión.", true);
+    return;
+  }
+  authStatus("Sesión cerrada.");
+  renderLoggedOut();
+});
+
+/* Recuperar contraseña */
+$("btn-reset")?.addEventListener("click", async () => {
+  const email = $("auth-email").value.trim();
+  if (!email) {
+    authStatus("Escribe primero tu correo electrónico.", true);
+    return;
+  }
+
+  const { error } = await sb.auth.resetPasswordForEmail(email, {
+    redirectTo: SITE_URL
+  });
+
+  if (error) {
+    authStatus("No se pudo enviar el correo de recuperación: " + error.message, true);
+    return;
+  }
+
+  authStatus("✓ Revisa tu correo para restablecer la contraseña.");
+});
+
+/* Guardar perfil */
+$("btn-save-profile")?.addEventListener("click", async () => {
+  const { data: { user } } = await sb.auth.getUser();
+
+  if (!user) {
+    profileStatus("Primero inicia sesión.", true);
+    return;
+  }
+
+  const payload = {
+    id: user.id,
+    nombre: $("profile-alumno").value.trim(),
+    apoderado: $("profile-apoderado").value.trim(),
+    whatsapp_apoderado: $("profile-whatsapp").value.trim(),
+    lichess_usuario: $("lichess-user").value.trim(),
+    lichess_url: $("lichess-url").value.trim()
+  };
+
+  profileStatus("Guardando...");
+
+  const { error } = await sb.from("perfiles").upsert(payload, { onConflict: "id" });
+
+  if (error) {
+    console.error(error);
+    profileStatus("No se pudo guardar: " + error.message, true);
+    return;
+  }
+
+  profileStatus("✓ Perfil guardado correctamente.");
+});
+
+/* Cargar perfil y biblioteca */
+async function cargarPerfil(user) {
+  $("btn-logout").style.display = "inline-block";
+
+  const { data: profile, error } = await sb
+    .from("perfiles")
+    .select("nombre,apoderado,whatsapp_apoderado,lichess_usuario,lichess_url")
+    .eq("id", user.id)
+    .maybeSingle();
+
+  if (!error && profile) {
+    $("profile-alumno").value = profile.nombre || "";
+    $("profile-apoderado").value = profile.apoderado || "";
+    $("profile-whatsapp").value = profile.whatsapp_apoderado || "";
+    $("lichess-user").value = profile.lichess_usuario || "";
+    $("lichess-url").value = profile.lichess_url || "";
+  }
+
+  await cargarBiblioteca(user);
+}
+
+async function cargarBiblioteca(user) {
+  $("library-status").textContent = "Consultando tu biblioteca...";
+  $("library-list").innerHTML = "";
+
+  const { data, error } = await sb
+    .from("library_access")
+    .select("book_id,title,description,subscription_status,expires_at")
+    .eq("user_id", user.id);
+
+  if (error) {
+    console.error(error);
+    $("library-status").textContent =
+      "Tu cuenta funciona, pero todavía no hay una biblioteca configurada para este usuario.";
+    return;
+  }
+
+  if (!data || data.length === 0) {
+    $("library-status").textContent =
+      "No tienes libros habilitados todavía. Cuando tu pago sea confirmado, aparecerán aquí.";
+    return;
+  }
+
+  $("library-status").textContent = "✓ Contenido disponible:";
+  const list = $("library-list");
+
+  data.forEach(item => {
+    const row = document.createElement("div");
+    row.className = "library-item";
+
+    const info = document.createElement("div");
+    info.innerHTML =
+      "<strong>" + esc(item.title) + "</strong>" +
+      "<br><small>" + esc(item.description || "") + "</small>" +
+      (item.expires_at ? "<br><small>Vence: " + esc(new Date(item.expires_at).toLocaleDateString("es-PE")) + "</small>" : "");
+
+    const btn = document.createElement("button");
+    btn.className = "btn";
+    btn.type = "button";
+    btn.textContent = "Descargar";
+    btn.addEventListener("click", () => descargarLibro(item.book_id));
+
+    row.append(info, btn);
+    list.appendChild(row);
+  });
+}
+
+async function descargarLibro(bookId) {
+  const { data, error } = await sb.functions.invoke("download-book", {
+    body: { book_id: bookId }
+  });
+
+  if (error || !data?.url) {
+    alert("No tienes acceso a este contenido o el enlace expiró.");
+    return;
+  }
+
+  window.open(data.url, "_blank", "noopener");
+}
+
+function renderLoggedOut() {
+  $("btn-logout").style.display = "none";
+  $("library-status").textContent = "Inicia sesión para consultar tus beneficios.";
+  $("library-list").innerHTML = "";
+  $("profile-status").textContent = "";
+}
+
+/* Restaurar sesión y reaccionar a cambios */
+sb.auth.onAuthStateChange(async (event, session) => {
+  if (session?.user) {
+    await cargarPerfil(session.user);
+  } else {
+    renderLoggedOut();
+  }
+});
+
+(async () => {
+  const { data: { session } } = await sb.auth.getSession();
+  if (session?.user) await cargarPerfil(session.user);
+  else renderLoggedOut();
+})();
 </script>
 </body>
 </html>
